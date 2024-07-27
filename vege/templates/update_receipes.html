@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Update Recipe{% endblock %}
+
+{% block content %}
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-sm">
+                <div class="card-header">
+                    <h1 class="text-center mb-4">Update Recipe</h1>
+                </div>
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="recipeName" class="form-label">Recipe Name</label>
+                            <input name="receipe_name" value="{{receipe.receipe_name}}" type="text" class="form-control" id="recipeName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="recipeDescription" class="form-label">Recipe Description</label>
+                            <textarea class="form-control" name="receipe_description" id="recipeDescription" rows="3" required>{{receipe.receipe_description}}</textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="recipeImage" class="form-label">Recipe Image</label>
+                            <input name="receipe_image" class="form-control" type="file" id="recipeImage" accept="image/*">
+                        </div>
+                        <button type="submit" class="btn btn-success w-100">Update Recipe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
